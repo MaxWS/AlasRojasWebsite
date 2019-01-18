@@ -1,0 +1,647 @@
+/*
+Project Name: Red Wings
+Client: NA
+Author: Maximiliano Diaz Garcia
+*/
+
+
+/******************************************
+/* SETUP
+/*******************************************/
+
+/* Box Model Hack */
+
+* {
+  -moz-box-sizing: border-box; /* Firexfox */
+  -webkit-box-sizing: border-box; /* Safari/Chrome/iOS/Android */
+  box-sizing: border-box; /* IE */
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.2;
+  font-family: 'Open Sans', sans-serif, 'Bungee Inline', cursive;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  font-size: 6rem;
+  color: #131e27;
+  font-weight: normal;
+  font-family: 'Bungee Shade', cursive;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+p {
+  color: #131e27;
+  font-family: 'Open Sans';
+}
+.container {/* Center the container */
+  width: 100%;
+  margin: 0 auto;
+}
+.pages-title {
+  font-size: 3.5em;
+}
+.linkpages {
+  text-decoration: underline;
+  color: green;
+}
+/* FOOTER */
+footer {
+  min-height: 6em;
+  background-color: #131e27;
+}
+.footer-ul {
+  text-align: center;
+  padding-top: 1em;
+  height: 8em;
+  color: white;
+}
+.footer-intro {
+  font-family: 'Bungee Inline', cursive;
+  font-size: 4rem;
+  font-weight: 300;
+  padding-bottom: 1em;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: tomato;
+}
+.social-media {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+.copyright {
+  font-size: 0.8rem;
+  text-align: center;
+  color: tomato;
+}
+.fa-3x {
+  padding-right: 0.1em;
+  padding-left: 0.1em;
+}
+.footer-developer {
+  text-align: center;
+}
+.developer {
+  font-size: 1rem;
+  font-variant: sub;
+}
+/* FOOTER */
+/* HEADER */
+header {
+  background: #DB0909;  
+  text-align: center;
+  position: fixed;/* fixes the Navigation to the top of the website */
+  width: 100%;
+  z-index: 999;/* places the navegation on top of everything */
+}
+header nav ul li a {
+  color: white;
+}
+nav {/* Navigation */ 
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  background: #DB0909;
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+nav a {
+  opacity: 0;
+  transition: opacity 50ms ease-in-out;
+}
+/* ' ~ ' looks for any Navigation after ' .nav-toggle ' that is checked*/
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+.nav-toggle {
+  display: none;
+}
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+.nav-toggle-label span::after {
+  top: 7px;
+}
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+li.hover:hover {
+  background-color: tomato;
+  color: black;
+  font-weight: 200;
+} 
+img#logo {
+  max-width: 8em;
+  height: auto;
+  padding: 0.1em;
+}
+/* HEADER */
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+
+.container.navigation {
+  height: 3em;
+}
+.container.welcome  {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5em;
+  padding: 2em;
+}
+.container.sponsors {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4em;
+  flex-direction: row-reverse;
+}
+.container.contact {
+  display: block;
+}
+.container.help {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4em;
+}
+h2.title {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
+  font-variant: small-caps;
+}
+
+/* HOME PAGE */
+/*Institutional Section*/
+#institutional {  
+  background-image: url("../img/background-main.jpg"); /* Grabs the image from the folder */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  height: 43em;
+}
+.welcome {
+  width: 100%;
+  margin-top: 4em;
+}
+h1.home {
+  font-family: 'Bungee Outline', cursive;
+  color: white;
+  font-weight: bold;
+}
+.welcome-h1-span {
+  color: #DB0909;
+}
+.welcome-words {
+  display: flex;
+  flex-direction: column;
+}
+#welcome-words-span  {
+  color: white;
+  font-size: 1.8rem;
+  -moz-box-shadow:    inset 0 0 170px red;
+  -webkit-box-shadow: inset 0 0 170px red;
+  box-shadow:         inset 0 0 170px red;
+}
+.opacity {
+  background-color: white;
+  filter: opacity(130%);
+  text-align: center;
+}
+.welcome-words-date {
+  font-size: 1.5em;
+  word-spacing: 0.2em;
+  color: #DB0909;
+  font-family: 'Bungee Inline', cursive;
+}
+#welcome-words-span  {
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: 'Bungee Inline', cursive;
+}
+/*Sponsors Section*/
+.sponsors-img {
+  width: 8em;
+  padding: 0.5em;
+}
+.title.sponsors {
+  margin-bottom: 0em;
+  color: #DB0909;
+  font-variant: small-caps;
+}
+/*Contact Section*/
+iframe {
+  height: 500px;
+  width: 100%;
+}
+#google {
+  display: flex;
+  flex: 4;
+}
+/*Get involved Section*/
+#helpus {
+  background-color: #DB0909;
+  filter: brightness(85%);
+}
+/* HOME PAGE */
+
+/* OUR TEAM PAGE */
+.ne-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  color: #131e27;
+  margin-top: 5em;
+}
+.ne-ul {
+  margin-top: 1em;
+  padding-left: 3em;
+}
+.ne-section {
+  display: flex;
+  flex-direction: column;
+}
+.ne-main {
+  padding: 2em;
+  margin-left: 0.5em;
+}
+.ne-list-coaches {
+  font-size: 1em;
+  font-family: 'Open Sans';
+}
+.ne-list-coaches.coach {
+  list-style: disclosure-closed;
+}
+.ball {
+  width: 100%;
+  margin: 0 auto;
+  padding: 4em;
+}
+/* OUR HISTORY PAGE */
+.nh-section {
+  margin-top: 7em;
+}
+.nh-grid-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  grid-gap: 3em;
+  padding: 3em;
+  grid-row-gap: 6em;
+  grid-column-gap: 5em;
+  padding-bottom: 6em;
+}
+.nh-p-intro {
+  font-size: 1em;
+  font-family: 'Open Sans';
+}
+.pages-title.nh{
+  margin-left: 0.5em;
+}
+/* OUR CLUB PAGE */
+.nc-section {
+  margin-top: 7em;
+}
+.pages-title.nc{
+  margin-left: 0.5em;
+}
+.nc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: auto;
+  grid-column-gap: 2em;
+  grid-row-gap: 5em;
+  padding: 2em;
+  color: #131e27;
+  padding-bottom: 4em;
+}
+.nc-ul {
+  list-style: disc;
+  color: #131e27;
+  font-family: 'Open Sans';
+}
+.nc-contact {
+  display: flex;
+  flex-direction: column;
+  background: lightyellow;
+  padding: 1em;
+}
+.title.nc {
+  color: #131e27;
+  margin-bottom: 1em;
+}
+.nc-link {
+  color: tomato;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+} 
+.nc-contact-p {
+  margin-bottom: 0.2em;
+  margin-top: 0.5em; 
+  font-style: italic;
+}
+.nc-address {
+  margin-top: 5em;
+}
+.nc-social {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nc-img {
+  width: 100%;
+  height: auto;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Medium size devices */
+@media screen and (min-width: 30em) and (max-width: 60em) { 
+  h1 {
+    text-align: center;
+    font-size: 5rem;
+  }
+  .footer-intro {
+    font-size: 3rem;
+  }
+  .pages-title {
+    font-size: 2.5em;
+  }
+  .container.welcome h1 {
+    font-size: 4rem;
+    margin-bottom: 0.1em;
+    margin-top: 0.2em;
+  }
+  .container.welcome {
+    display: block;
+    padding: 1.5em;
+  }
+  #welcome-words-span {
+    font-size: 1.2rem;
+  }
+  h1.home {
+    color: #DB0909;
+  }
+  .ne-ul {
+    margin-top: 2em;  
+    padding-left: 0em;
+  }
+  .ne-grid {
+    grid-template-columns: 1fr;
+  }
+  .nh-section {
+    margin-top: 7em;
+  }
+  .nh-grid-intro {
+    grid-template-columns: 1fr; 
+    grid-gap: 2em;
+    padding-bottom: 3em;
+  }
+  .pages-title.nh {
+    margin-left: 0;
+  }
+  .pages-title.nc{
+    margin-left: 0;
+  }
+  .nc-grid {
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 2em;
+    padding-bottom: 3em;
+  }
+  .title.nc {
+    font-size: 2rem;
+    margin-top: 0.5em;  
+  }
+  .nc-contact {
+    padding: 0.5em;
+  }
+}
+/* Medium size devices */
+/* ---------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------- */
+/* Mobile phones */
+@media screen and (max-width: 40em) {
+  h1 {
+    font-size: 3em;
+  }
+  p {
+    font-size: 1.1rem;
+  }
+  .social-media {
+    padding: 1.5em;
+  }
+  .welcome-words {
+    line-height: 3rem;
+    text-align: center;
+    padding-top: 1em;
+  }
+  /* HOME */
+  h1.home {
+    color: #DB0909;
+  }
+  .sponsors-img {
+    padding-top: 3em;
+  }
+  .container.sponsors {
+    padding: 1.5em;
+    flex-direction: column;
+  }
+  .container.welcome {
+    display: block;
+  }
+  .container.welcome h1 {
+    font-size: 3rem;
+    margin-bottom: 0.1em;
+  }
+  h2.title {
+    font-size: 1.5rem;
+  }
+  .title.sponsors {
+    margin-bottom: 1em;
+  }
+  .helpicon {
+    display: none;
+  }
+  .footer-intro {
+    letter-spacing: 0.3em;
+    font-size: 1.5rem;
+  }
+  .footer-ul {
+    display: flex;
+    justify-content: space-around;
+  }
+  /* OUR TEAM */
+  .team {
+    padding-top: 1em;
+  }
+  .ne-grid {
+    grid-template-columns: 1fr;  
+  }
+  .ne-ul { 
+    padding-left: 0.1em;
+  }
+  .ne-main {
+    padding: 1.5em;
+    margin-left: 0.2em;
+  }
+  .pages-title {
+    font-size: 1.3em;
+  }
+  .ne-list-coaches {
+    font-size: 0.9em;
+  }
+  .ball {
+    padding: 1em;
+  }
+  /* OUR HISTORY */
+  .nh-grid-intro {
+    grid-template-columns: 1fr ; 
+    grid-gap: 1em;
+    padding: 1em;
+    padding-bottom: 2em;
+  }
+  .nh-p-intro {
+    font-size: 1.1rem;
+    font-family: 'Open Sans';
+  }
+  .nh-section {
+    margin-top: 7em;
+  }  
+  /* OUR CLUB */
+  .nc-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    padding: 1em;
+  }
+  .title.nc {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+  .nc-address {
+  margin-top: 2em;
+  }
+}
+/* Mobile phones */
+/* ---------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------- */
+/* Small mobile phones */
+@media screen and (max-width: 30em) {
+  .footer-intro {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .footer-ul {
+    height: 6em;
+  }
+  .copyright {
+    font-size: 0.6rem;
+  }
+  .sponsors-title {
+    font-size: 2rem;
+  }
+  .sponsors-img {
+    width: 5em;
+    padding: 0.4em;
+  }
+  #welcome-words-span {
+    display: none;
+  }
+  .container.welcome h1 {
+  font-size: 2rem;
+  }
+  .ne-grid {
+    display: grid;
+    grid-template-columns: 1fr;   
+  }
+}
+/* Small mobile phones */
+/* ---------------------------------------------------------------------- */
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+/*Shake effect*/
+a :not(#logo):hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+a :visited {
+    background-color: cyan;
+}
+
+
